@@ -1,0 +1,250 @@
+/* ===== GLOBAL ===== */
+:root{
+  --bg1:#0c0f14;
+  --bg2:#1b2330;
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.18);
+  --muted: #b6c8e0;
+  --neon: #00f8ff;
+  --accent-yellow: linear-gradient(90deg, #ffe66d, #ffc800);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{
+  background: linear-gradient(145deg, var(--bg1), var(--bg2) 60%, #0c1118);
+  color: #e6efff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom:60px;
+}
+
+/* HEADER */
+.header{ text-align:center;padding:36px 20px 12px;}
+.header h1{ margin:0; font-size:40px; font-weight:800; color:#f7f9fc; }
+.subtitle{ margin:8px 0 6px; color:var(--muted); font-size:16px; }
+.divider{ border:0; height:1px; background:rgba(255,255,255,0.04); margin:16px auto 0; width:86%; }
+
+/* LAYOUT */
+.layout{ display:grid; grid-template-columns:1.2fr 2fr; gap:36px; padding:28px 60px; align-items:flex-start; max-width:1300px; margin:0 auto; }
+
+/* APPLE GLASS CARD */
+.apple-glass{
+  background: var(--glass-bg);
+  border-radius:18px;
+  padding:22px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35), inset 0 0 40px rgba(255,255,255,0.03);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.apple-glass:hover{ transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,0.55), inset 0 0 50px rgba(255,255,255,0.05); }
+
+/* GLASS CARD WRAPPERS */
+.glass-card{ border-radius:18px; overflow:visible; }
+.left-card{
+    width: 90%;
+    max-width:90%;
+ }
+
+.right-card,
+.right-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.right-card .apple-glass,
+.right-box .apple-glass {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.right-column .glass-card {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.right-column .glass-card .apple-glass {
+    width: 100% !important;
+}
+
+/* HEADINGS/ LISTS */
+.apple-glass h3{ color:#d0e4ff; margin:0 0 12px; font-weight:700; }
+.apple-glass ul{ margin:8px 0 0 16px; line-height:1.48; color:#dbeeff; }
+.apple-glass ul li{ margin:8px 0; opacity:0.95; }
+
+/* FORM FIELDS */
+.two-col{ display:flex; gap:20px; }
+.field{ width:100%; }
+label{ display:block; font-size:14px; margin-bottom:6px; color: #cfe7ff; opacity:0.95; font-weight:600; }
+input[type="text"]{
+  width:100%; padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06); color:#fff; outline:none; font-size:14px;
+}
+input[type="text"]::placeholder{ color: rgba(255,255,255,0.45); }
+input[type="text"]:focus{ border-color: #6dbaff; box-shadow: 0 0 10px rgba(109,186,255,0.35); }
+
+/* FILE UPLOADER look */
+.file-slot{ margin-top:12px; position:relative; }
+.file-input{
+  display:inline-block; width:100%; padding:12px; border-radius:12px; text-align:center;
+  color:#d0e8ff; cursor:pointer; background: rgba(255,255,255,0.06); border:1px dashed rgba(255,255,255,0.14);
+  transition: all .18s;
+}
+.file-input:hover{ background: rgba(255,255,255,0.1); border-color: #8bccff; box-shadow: 0 6px 20px rgba(0,0,0,0.35); }
+.file-slot input[type="file"]{ opacity:0; position:absolute; left:0; top:0; right:0; bottom:0; width:100%; height:100%; cursor:pointer; }
+
+/* small note for file */
+.small-note{ margin-top:8px; font-size:13px; color:#9bbfe8; min-height:18px; }
+
+/* RUN area */
+.run-area{ margin-top:20px; }
+.action-btn{
+  width:100%; padding:12px 18px; border-radius:14px; font-weight:700; font-size:16px; color:#000;
+  border:none; background:var(--accent-yellow); cursor:pointer; box-shadow: 0 0 10px rgba(255,208,0,0.35);
+  transition: all .18s;
+}
+.action-btn[disabled]{ background: rgba(180,180,180,0.4); color:#444; cursor:not-allowed; box-shadow:none; }
+.action-btn:not([disabled]):hover{ transform:translateY(-3px); box-shadow: 0 0 18px rgba(255,215,0,0.75); }
+
+/* loader and progress */
+.loader-row{ display:flex; gap:12px; align-items:center; margin-top:12px; }
+.spinner{
+  width:22px; height:22px; border-radius:50%; border:4px solid rgba(208,216,232,0.35); border-top:4px solid #4d6ecf; animation:spin 1s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.loader-text{ color:#cfeaff; font-size:14px; opacity:0.95; }
+
+.progress-wrapper{ display:flex; align-items:center; gap:12px; margin-top:12px; }
+.progress-bar{ flex:1; height:10px; background:rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; }
+.progress-fill{ height:100%; width:0%; background: linear-gradient(90deg,#00faff,#00c8ff); transition:width .3s ease; }
+.progress-pct{ min-width:44px; text-align:right; color:#d0f3ff; font-weight:700; }
+
+/* result preview & download */
+.result-preview{ margin-top:18px; background: rgba(255,255,255,0.03); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+.result-preview pre{ max-height:160px; overflow:auto; color:#dbf2ff; background:transparent; border:0; margin:0; font-size:13px; }
+.download-btn{
+  display:inline-block; margin-top:10px; padding:10px 14px; border-radius:12px; text-decoration:none; color:#001217; background:linear-gradient(90deg,#00faff,#00c8ff); font-weight:700;
+  box-shadow: 0 6px 20px rgba(0,200,255,0.12); transition: transform .12s, box-shadow .12s;
+}
+.download-btn.hidden{ display:none; }
+
+/* HIDE helpers */
+.hidden{ display:none !important; }
+
+/* ===== Floating step box ===== */
+.step-float{
+  position:fixed; right:40px; top:40px; z-index:9999;
+  background: rgba(3,10,20,0.82); color:#e6f8ff;
+  border:1.5px solid rgba(0,255,255,0.28); padding:28px 32px; border-radius:22px;
+  box-shadow:0 14px 50px rgba(0,0,0,0.7); min-width:360px; max-width:420px;
+  backdrop-filter: blur(16px) saturate(160%);
+}
+.step-float .accent{ height:12px; width:100%; border-radius:10px; margin-bottom:14px; background:linear-gradient(90deg,#00faff,#00c8ff,#00faff); box-shadow:0 4px 18px rgba(0,200,255,0.35); }
+.step-float .step-label{ font-size:20px; font-weight:700; letter-spacing:0.4px; }
+.step-float .step-desc{ font-size:17px; color:#d6f7ff; margin-top:12px; line-height:1.5; }
+
+/* ===== Neon highlight animation (apply to body.step-X) ===== */
+@keyframes neonPulse {
+  0%{ box-shadow: 0 0 10px rgba(0,255,255,0.25);}
+  50%{ box-shadow: 0 0 40px rgba(0,255,255,0.95); transform:translateY(-2px); }
+  100%{ box-shadow: 0 0 10px rgba(0,255,255,0.25);}
+}
+
+/* Highlight rules - we target real elements by id/aria */
+body.step-1 #boardA {
+  animation: neonPulse 10s infinite; outline:2px solid rgba(0,255,255,0.9); box-shadow:0 0 28px rgba(0,255,255,0.95);
+}
+body.step-2 #uploadA-wrapper .file-input {
+  animation: neonPulse 10s infinite; border:2px solid rgba(0,255,255,1); box-shadow:0 0 34px rgba(0,255,255,0.95);
+}
+body.step-3 #boardB {
+  animation: neonPulse 10s infinite; outline:2px solid rgba(0,255,255,0.9); box-shadow:0 0 28px rgba(0,255,255,0.95);
+}
+body.step-4 #uploadB-wrapper .file-input {
+  animation: neonPulse 10s infinite; border:2px solid rgba(0,255,255,1); box-shadow:0 0 34px rgba(0,255,255,0.95);
+}
+body.step-5 .action-btn:not([disabled]){ animation: neonPulse 10s infinite; box-shadow:0 0 36px rgba(255,220,0,0.95); transform:translateY(-1px); }
+body.step-6 .download-btn{ animation: neonPulse 16s infinite; box-shadow:0 0 34px rgba(0,255,255,0.95); transform:translateY(-1px); }
+
+/* Responsive */
+@media (max-width:900px){
+  .layout{ grid-template-columns:1fr; padding:20px; }
+  .step-float{ right:14px; left:14px; top:auto; bottom:20px; max-width:unset; min-width:unset; }
+}
+
+/* ================================
+   FIX 1: Make left = 35% and right = 65%
+================================ */
+.layout {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 36px;
+    padding: 28px 60px;
+    align-items: stretch; /* NEW: makes heights equal */
+}
+
+/* Make both glass cards same vertical size */
+.left-card, .right-card {
+    height: 100% !important;
+}
+
+/* ================================
+   FIX 2: Contain preview table inside glass box
+================================ */
+
+.preview-table {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-top: 12px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.preview-table table {
+    display: inline-block;   /* FORCE horizontal scroll */
+    white-space: nowrap;     /* prevent wrapping */
+    border-collapse: collapse;
+    width: max-content !important
+}
+
+.preview-table th {
+    background: rgba(0, 200, 255, 0.35);
+    padding: 10px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.preview-table td {
+    padding: 6px 12px;
+    color: #d7eaff;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+
+/* ================================
+   FIX 3: Run Comparison Button Smaller + Left aligned
+================================ */
+.run-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* moves button to left */
+}
+
+.action-btn {
+    width: auto !important;   /* no full width */
+    padding: 10px 18px !important;
+    font-size: 14px;
+}
+
+/* To prevent stretching of right card by table */
+.result-preview {
+    overflow: visible;
+}
+
