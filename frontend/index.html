@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Syllabus Mapping Agent — Mock UI</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="step-1">
+  <main class="app">
+    <header class="header">
+      <h1>📘 Syllabus Mapping Agent</h1>
+      <p class="subtitle">Smart AI-Based Curriculum Mapper</p>
+      <hr class="divider">
+    </header>
+
+    <section class="layout">
+      
+      <!-- LEFT: Instructions -->
+      <aside class="glass-card left-card">
+        <div class="apple-glass">
+          <h3>📌 Instructions</h3>
+          <ul>
+            <li>Upload <strong>CSV or XLSX</strong></li>
+            <li>Keep only:
+              <ul>
+                <li>Course Name</li>
+                <li>Chapter/Topic Name</li>
+                <li>Grade/Class</li>
+                <li>Description (optional)</li>
+              </ul>
+            </li>
+            <li>Remove:
+              <ul>
+                <li>Serial Number</li>
+                <li>Topic ID</li>
+                <li>Subject ID</li>
+                <li>Chapter ID</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <!-- BOX 1: ONLY HEADING -->
+        <div class="glass-card right-card-heading" style="margin-bottom: 18px;">
+          <div class="apple-glass">
+            <h2 style="margin:0;">📂 Upload Curriculum Files</h2>
+          </div>
+        </div>
+
+        <!-- BOX 2: INPUTS + UPLOAD + RUN + PREVIEW -->
+        <div class="glass-card right-card">
+          <div class="apple-glass">
+
+            <div class="two-col">
+              <div class="field">
+                <label for="boardA">Board A Name</label>
+                <input id="boardA" aria-label="Board A Name" type="text" placeholder="Enter Board A display name">
+                <div id="uploadA-wrapper" class="file-slot">
+                  <label class="file-input" for="fileA">Upload Board A File</label>
+                  <input id="fileA" aria-label="Upload Board A File" type="file" accept=".csv,.xlsx" />
+                  <div class="small-note" id="fileA-note"></div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="boardB">Board B Name</label>
+                <input id="boardB" aria-label="Board B Name" type="text" placeholder="Enter Board B display name">
+                <div id="uploadB-wrapper" class="file-slot">
+                  <label class="file-input" for="fileB">Upload Board B File</label>
+                  <input id="fileB" aria-label="Upload Board B File" type="file" accept=".csv,.xlsx" />
+                  <div class="small-note" id="fileB-note"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="run-area">
+              <button id="runBtn" class="action-btn" disabled>🚀 Run Comparison</button>
+
+              <div id="loaderRow" class="loader-row hidden">
+                <div class="spinner" aria-hidden="true"></div>
+                <div class="loader-text">⏳ Processing… This may take time depending upon the size of the file.</div>
+              </div>
+
+              <div id="progressWrapper" class="progress-wrapper hidden">
+                <div class="progress-bar">
+                  <div id="progressFill" class="progress-fill" style="width:0%"></div>
+                </div>
+                <div id="progressPct" class="progress-pct">0%</div>
+              </div>
+
+              <div id="resultPreview" class="result-preview hidden">
+                <h4>📊 Preview of Matches</h4>
+
+                <div id="previewTable" class="preview-table hidden"></div>
+
+                <a id="downloadBtn" class="download-btn hidden"
+                  href="#" download="Curriculum_Comparison_Results.csv">
+                  📥 Download Full Results (CSV)
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- END RIGHT COLUMN -->
+
+    </section>
+  </main>
+
+  <div id="stepFloat" class="step-float" role="note" aria-live="polite">
+    <div class="accent"></div>
+    <div class="step-label">Step 1: Enter Board A Name</div>
+    <div class="step-desc">Please provide the Board A display name.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
