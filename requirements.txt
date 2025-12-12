@@ -7,6 +7,6 @@ scikit-learn
 numpy
 sentence-transformers
 torch
-sklearn
 keybert
 faiss-cpu
+
