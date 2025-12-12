@@ -5,3 +5,8 @@ openpyxl
 python-multipart
 scikit-learn
 numpy
+sentence-transformers
+torch
+sklearn
+keybert
+faiss-cpu
