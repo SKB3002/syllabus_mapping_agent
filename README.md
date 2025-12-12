@@ -31,7 +31,7 @@ backend/
  
  ├── curriculum_comparator.py   # Core AI matching pipeline
  
- ├── requirements.txt  # Dependencies
+requirements.txt  # Dependencies
  
 output/
 
